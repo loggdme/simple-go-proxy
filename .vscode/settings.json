@@ -1,0 +1,23 @@
+{
+	// Editor
+	"editor.formatOnSave": true,
+
+	// Explorer & File Nesting
+	"explorer.fileNesting.enabled": true,
+	"explorer.fileNesting.expand": false,
+	"explorer.fileNesting.patterns": {
+		"go.mod": "go.sum",
+		"mise.toml": ".gitignore,.editorconfig",
+		"README.md": "LICENSE"
+	},
+
+	// Go
+	"gopls": { "importShortcut": "Definition" },
+	"go.diagnostic.vulncheck": "Off",
+	"[go][go.mod]": { "editor.defaultFormatter": "golang.go" },
+
+	// Spell Checker
+	"cSpell.ignorePaths": ["go.mod", "go.sum"],
+	"cSpell.language": "en,de-de",
+	"cSpell.words": ["gopls", "loggdme", "modcache", "vulncheck"]
+}

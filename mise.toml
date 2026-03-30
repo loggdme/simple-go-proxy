@@ -1,0 +1,24 @@
+[tools]
+go = "1.26.1"
+
+# --------------------------------------------------------------------------------
+# TASK DEFINITIONS
+# --------------------------------------------------------------------------------
+
+[tasks."mise:upgrade"]
+run = "mise upgrade --bump"
+
+[tasks."go:clean"]
+run = "rm -rf .tmp && go clean -cache -modcache -testcache"
+
+[tasks."go:install"]
+run = "go mod download"
+
+[tasks."go:start"]
+run = "go run main.go"
+
+[tasks."go:upgrade"]
+run = "go get -u ./... && go mod tidy"
+
+[tasks."go:lint"]
+run = "go vet ./... && go fmt ./..."
