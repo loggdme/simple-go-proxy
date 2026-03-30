@@ -19,5 +19,22 @@
 	// Spell Checker
 	"cSpell.ignorePaths": ["go.mod", "go.sum"],
 	"cSpell.language": "en,de-de",
-	"cSpell.words": ["gopls", "loggdme", "modcache", "vulncheck"]
+	"cSpell.words": [
+		"addext",
+		"debian",
+		"distroless",
+		"github",
+		"gopls",
+		"keyout",
+		"ldflags",
+		"linux",
+		"loggdme",
+		"modcache",
+		"newkey",
+		"nonroot",
+		"openssl",
+		"pipefail",
+		"trimpath",
+		"vulncheck"
+	]
 }

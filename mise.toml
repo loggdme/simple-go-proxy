@@ -22,3 +22,23 @@ run = "go get -u ./... && go mod tidy"
 
 [tasks."go:lint"]
 run = "go vet ./... && go fmt ./..."
+
+
+[tasks."gen-certs"]
+description = "Generate a self-signed TLS cert for the proxy listener and print base64 env vars"
+run = """
+CN="${1:-localhost}"
+DAYS="${CERT_DAYS:-3650}"
+
+openssl req -x509 \
+  -newkey rsa:4096 -sha256 -days "${DAYS}" -nodes \
+  -keyout proxy.key -out proxy.crt \
+  -subj "/CN=${CN}" \
+  -addext "subjectAltName=DNS:${CN},DNS:localhost,IP:127.0.0.1"
+
+echo ""
+echo "=== Base64 env vars ==="
+echo "PROXY_TLS_CERT_B64=$(base64 < proxy.crt | tr -d '\\n')"
+echo "PROXY_TLS_KEY_B64=$(base64 < proxy.key | tr -d '\\n')"
+"""
+
